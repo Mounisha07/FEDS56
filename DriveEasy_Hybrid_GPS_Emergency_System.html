@@ -1,0 +1,2334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveEasy Car Rental - Petrol, Diesel & EV</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#222;
+}
+
+.hidden{
+    display:none !important;
+}
+
+header{
+    background:#111827;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+nav button{
+    background:transparent;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+nav button:hover{
+    background:#2563eb;
+    border-radius:6px;
+}
+
+.hero{
+    min-height:450px;
+    padding:70px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    background:linear-gradient(135deg,#111827,#2563eb);
+    color:white;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.6;
+    max-width:550px;
+}
+
+.hero-car{
+    text-align:center;
+    font-size:160px;
+}
+
+.btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.white-btn{
+    background:white;
+    color:#111827;
+}
+
+.features{
+    padding:50px 8%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 15px #0002;
+}
+
+.form{
+    width:420px;
+    max-width:90%;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 15px #0002;
+}
+
+.form h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form .btn{
+    width:100%;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.section{
+    padding:40px 7%;
+}
+
+.section h1{
+    margin-bottom:25px;
+}
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 15px #0002;
+}
+
+.stat h2{
+    color:#2563eb;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.menu{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.search{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.search input,
+.search select{
+    min-width:150px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.search input{
+    flex:1;
+}
+
+.ev-note{
+    background:#e8f8ef;
+    color:#166534;
+    border-left:5px solid #16a34a;
+    padding:14px 16px;
+    border-radius:7px;
+    margin:-12px 0 25px;
+    line-height:1.5;
+}
+
+.ev-badge{
+    display:inline-block;
+    background:#dcfce7;
+    color:#166534;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin:8px 0;
+}
+
+.car-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.car-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 15px #0002;
+}
+
+.car-icon{
+    font-size:70px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.car-card h2{
+    margin-bottom:10px;
+}
+
+.car-card p{
+    margin:7px 0;
+}
+
+.price{
+    color:#2563eb;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.car-card .btn{
+    width:100%;
+}
+
+.table-box{
+    overflow-x:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#111827;
+    color:white;
+}
+
+.approve{
+    background:#16a34a;
+    color:white;
+    padding:7px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.reject{
+    background:#dc2626;
+    color:white;
+    padding:7px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+/* Hybrid backup, GPS and emergency features */
+.hybrid-badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold;margin:8px 0}
+.safety-panel{margin-top:35px;background:#fff;padding:25px;border-radius:12px;box-shadow:0 3px 15px #0002}
+.safety-panel h2{margin-bottom:10px}
+.safety-actions{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}
+.safety-status{background:#f1f5f9;padding:14px;border-radius:8px;line-height:1.6;margin-top:12px;overflow-wrap:anywhere}
+.sos-btn{background:#dc2626;color:white;border:0;padding:12px 20px;border-radius:6px;cursor:pointer;font-weight:bold}
+.stop-btn{background:#475569;color:white;border:0;padding:12px 20px;border-radius:6px;cursor:pointer}
+.hybrid-demo{background:#eff6ff;padding:12px;border-radius:8px;margin-top:12px;font-size:14px;line-height:1.5}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .features,
+    .car-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-cards{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .features,
+    .car-grid,
+    .dashboard-cards{
+        grid-template-columns:1fr;
+    }
+
+    .search{
+        flex-direction:column;
+    }
+}
+
+.feature-panel{margin-top:24px;background:#fff;padding:24px;border-radius:12px;box-shadow:0 3px 15px #0002}
+.feature-panel h2{margin-bottom:12px}
+.feature-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.feature-row input,.feature-row select{padding:12px;border:1px solid #cbd5e1;border-radius:6px;min-width:180px;flex:1}
+.result-box{background:#eff6ff;padding:14px;border-radius:8px;margin-top:12px;line-height:1.6}
+.small-btn{padding:8px 12px;border:0;border-radius:5px;background:#2563eb;color:white;cursor:pointer}
+.chat-launch{position:fixed;right:22px;bottom:22px;z-index:1000;background:#111827;color:white;border:0;border-radius:50px;padding:14px 20px;cursor:pointer;box-shadow:0 3px 12px #0004}
+.chat-box{position:fixed;right:22px;bottom:82px;width:min(340px,calc(100vw - 30px));height:390px;background:white;border-radius:12px;box-shadow:0 4px 24px #0004;z-index:1001;display:flex;flex-direction:column;overflow:hidden}
+.chat-head{background:#111827;color:white;padding:14px;font-weight:bold;display:flex;justify-content:space-between}
+.chat-messages{padding:12px;flex:1;overflow:auto;background:#f8fafc}
+.chat-msg{padding:9px 11px;border-radius:9px;margin:7px 0;max-width:90%;font-size:14px;line-height:1.4}
+.chat-bot{background:#e2e8f0;margin-right:auto}.chat-user{background:#dbeafe;margin-left:auto}
+.chat-input{display:flex;padding:10px;gap:6px}.chat-input input{min-width:0;flex:1;padding:10px;border:1px solid #cbd5e1;border-radius:6px}
+@media(max-width:600px){.chat-box{right:10px;bottom:75px}.chat-launch{right:12px;bottom:12px}}
+
+</style>
+</head>
+
+<body>
+
+
+
+
+<div id="home">
+
+<header>
+
+<div class="logo"> DriveEasy</div>
+
+<nav>
+<button onclick="openPage('home')">Home</button>
+<button onclick="openPage('cars')">Cars</button>
+<button onclick="openPage('login')">Login</button>
+<button onclick="openPage('signup')">Sign Up</button>
+<button onclick="openPage('adminLogin')">Admin</button>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div>
+
+<h1>Rent Your Dream Car</h1>
+
+<p>
+Easy, affordable and reliable car rental
+service. Choose your car and book it easily.
+</p>
+
+<button class="btn" onclick="openPage('cars')">
+Browse Cars
+</button>
+
+<button class="btn white-btn" onclick="openPage('signup')">
+Get Started
+</button>
+
+</div>
+
+<div class="hero-car">
+🚘
+</div>
+
+</section>
+
+
+<section class="features">
+
+<div class="card">
+<h2>Wide Choice</h2>
+<br>
+<p>Choose from different cars and categories.</p>
+</div>
+
+<div class="card">
+<h2> Affordable</h2>
+<br>
+<p>Affordable rental prices for customers.</p>
+</div>
+
+<div class="card">
+<h2>Easy Booking</h2>
+<br>
+<p>Book your car in a few simple steps.</p>
+</div>
+
+<div class="card">
+<h2>Electric Vehicle Options</h2>
+<br>
+<p>Save on rising petrol and diesel costs by choosing an electric car with zero tailpipe emissions.</p>
+</div>
+
+</section>
+
+</div>
+
+
+<!-- ================= SIGNUP ================= -->
+
+<div id="signup" class="hidden">
+
+<header>
+
+<div class="logo"> DriveEasy</div>
+
+<nav>
+<button onclick="openPage('home')">Home</button>
+<button onclick="openPage('login')">Login</button>
+</nav>
+
+</header>
+
+
+<div class="form">
+
+<h1>Create Account</h1>
+
+<form onsubmit="signupUser(event)">
+
+<div class="input-group">
+<label>Name</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="input-group">
+<label>Phone</label>
+<input type="tel" id="phone" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="password" required>
+</div>
+
+<button class="btn" type="submit">
+Create Account
+</button>
+
+</form>
+
+<p id="signupMsg" class="message"></p>
+
+</div>
+
+</div>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div id="login" class="hidden">
+
+<header>
+
+<div class="logo">DriveEasy</div>
+
+<nav>
+<button onclick="openPage('home')">Home</button>
+<button onclick="openPage('signup')">Sign Up</button>
+</nav>
+
+</header>
+
+
+<div class="form">
+
+<h1>User Login</h1>
+
+<form onsubmit="loginUser(event)">
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="loginEmail" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="loginPassword" required>
+</div>
+
+<button class="btn" type="submit">
+Login
+</button>
+
+</form>
+
+<p id="loginMsg" class="message"></p>
+
+</div>
+
+</div>
+
+
+<!-- ================= USER DASHBOARD ================= -->
+
+<div id="userDashboard" class="hidden">
+
+<header>
+
+<div class="logo">DriveEasy</div>
+
+<nav>
+<button onclick="openPage('userDashboard')">
+Dashboard
+</button>
+
+<button onclick="openPage('cars')">
+Cars
+</button>
+
+<button onclick="openPage('bookings')">
+My Bookings
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+</nav>
+
+</header>
+
+
+<section class="section">
+
+<h1>
+Welcome, <span id="userName">User</span>
+</h1>
+
+
+<div class="dashboard-cards">
+
+<div class="stat">
+<h2></h2>
+<p>Available Cars</p>
+</div>
+
+<div class="stat">
+<h2></h2>
+<p>My Bookings</p>
+</div>
+
+<div class="stat">
+<h2></h2>
+<p>Affordable Prices</p>
+</div>
+
+<div class="stat">
+<h2></h2>
+<p>Easy Service</p>
+</div>
+
+</div>
+
+
+<div class="menu">
+
+<button class="btn" onclick="openPage('cars')">
+Browse Cars
+</button>
+
+<button class="btn" onclick="openPage('bookings')">
+My Bookings
+</button>
+
+</div>
+
+<div class="safety-panel">
+    <h2>🚗 Smart Drive Safety</h2>
+    <p>Track the vehicle location with your browser's location permission, or use the emergency SOS option.</p>
+    <div class="safety-actions">
+        <button class="btn" onclick="startGpsTracking()">📍 Start GPS Tracking</button>
+        <button class="stop-btn" onclick="stopGpsTracking()">Stop Tracking</button>
+        <button class="btn" onclick="shareLiveLocation()">Share Location</button>
+        <button class="sos-btn" onclick="sendEmergencySOS()">🆘 Emergency SOS</button>
+        <button class="sos-btn" onclick="callEmergency112()">📞 Call 112</button>
+    </div>
+    <div id="gpsStatus" class="safety-status" aria-live="polite">GPS is not active. Press Start GPS Tracking and allow location access.</div>
+    <p style="font-size:13px;color:#64748b;margin-top:10px">GPS works after browser location permission is granted (use HTTPS or localhost). Share Location opens your device's sharing/SMS options. SOS prepares a message; it does not automatically alert police or a control room. In India, call 112 for immediate danger.</p>
+</div>
+
+<div class="feature-panel">
+    <h2>🤖 Smart Car Recommendation</h2>
+    <p>Enter your daily budget and preferred vehicle type to get a recommendation from the available cars.</p>
+    <div class="feature-row">
+        <input type="number" id="recommendBudget" min="1" placeholder="Your budget per day (₹)">
+        <select id="recommendFuel"><option value="All">Any fuel type</option><option>Petrol</option><option>Diesel</option><option>Electric</option><option>Petrol + Electric Hybrid</option></select>
+        <button class="btn" onclick="recommendCar()">Recommend a Car</button>
+    </div>
+    <div id="recommendResult" class="result-box">Your recommended car will appear here.</div>
+</div>
+
+<div class="feature-panel">
+    <h2>⚡ EV Charging Station Locator</h2>
+    <p>Use your current location to search for nearby EV charging stations on Google Maps.</p>
+    <div class="feature-row">
+        <button class="btn" onclick="findChargingStations()">Find Nearby Charging Stations</button>
+    </div>
+    <div id="chargingResult" class="result-box">Location permission is required to search near you.</div>
+</div>
+
+</section>
+
+</div>
+
+
+<!-- ================= CARS ================= -->
+
+<div id="cars" class="hidden">
+
+<header>
+
+<div class="logo">DriveEasy</div>
+
+<nav>
+
+<button onclick="goHome()">Home</button>
+
+<button onclick="openPage('userDashboard')">
+Dashboard
+</button>
+
+<button onclick="openPage('bookings')">
+My Bookings
+</button>
+
+</nav>
+
+</header>
+
+
+<section class="section">
+
+<h1>Available Cars</h1>
+
+
+<div class="search">
+
+<input
+type="text"
+id="search"
+placeholder="Search car..."
+onkeyup="showCars()"
+>
+
+
+<select id="category" onchange="showCars()">
+
+<option value="All">
+All Categories
+</option>
+
+<option value="SUV">
+SUV
+</option>
+
+<option value="Sedan">
+Sedan
+</option>
+
+<option value="Hatchback">
+Hatchback
+</option>
+
+</select>
+
+<select id="fuelType" onchange="showCars()">
+<option value="All">All Fuel Types</option>
+<option value="Petrol">Petrol</option>
+<option value="Diesel">Diesel</option>
+<option value="Electric">Electric Vehicle (EV)</option>
+</select>
+
+</div>
+
+<p class="ev-note">⚡ Fuel prices rising? Choose an Electric Vehicle (EV) to avoid petrol and diesel costs.</p>
+<div id="carList" class="car-grid"></div>
+
+</section>
+
+</div>
+
+
+<!-- ================= BOOKINGS ================= -->
+
+<div id="bookings" class="hidden">
+
+<header>
+
+<div class="logo">DriveEasy</div>
+
+<nav>
+
+<button onclick="openPage('userDashboard')">
+Dashboard
+</button>
+
+<button onclick="openPage('cars')">
+Cars
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+
+<section class="section">
+
+<h1>My Bookings</h1>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Car</th>
+<th>Fuel Type</th>
+<th>Pickup</th>
+<th>Return</th>
+<th>Total</th>
+<th>Status</th>
+<th>Invoice</th>
+</tr>
+
+</thead>
+
+<tbody id="bookingList"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- ================= ADMIN LOGIN ================= -->
+
+<div id="adminLogin" class="hidden">
+
+<header>
+
+<div class="logo">DriveEasy</div>
+
+<nav>
+<button onclick="openPage('home')">
+Home
+</button>
+</nav>
+
+</header>
+
+
+<div class="form">
+
+<h1> Admin Login</h1>
+
+<form onsubmit="adminLogin(event)">
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="adminEmail" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="adminPassword" required>
+</div>
+
+<button class="btn" type="submit">
+Admin Login
+</button>
+
+</form>
+
+<p id="adminMsg" class="message"></p>
+
+<br>
+
+<p style="text-align:center">
+Demo:<br>
+<b>admin@driveeasy.com</b><br>
+<b>admin123</b>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= ADMIN DASHBOARD ================= -->
+
+<div id="adminDashboard" class="hidden">
+
+<header>
+
+<div class="logo">
+ DriveEasy Admin
+</div>
+
+<nav>
+
+<button onclick="adminLogout()">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+
+<section class="section">
+
+<h1>Admin Dashboard</h1>
+
+
+<div class="dashboard-cards">
+
+<div class="stat">
+<h2 id="carCount">0</h2>
+<p>Total Cars</p>
+</div>
+
+<div class="stat">
+<h2 id="userCount">0</h2>
+<p>Total Users</p>
+</div>
+
+<div class="stat">
+<h2 id="bookingCount">0</h2>
+<p>Total Bookings</p>
+</div>
+
+<div class="stat">
+<h2 id="pendingCount">0</h2>
+<p>Pending Bookings</p>
+</div>
+<div class="stat">
+<h2 id="revenueCount">₹0</h2>
+<p>Booking Value</p>
+</div>
+
+</div>
+
+
+<h2 style="margin-top:40px">
+Manage Bookings
+</h2>
+
+<br>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>User</th>
+<th>Car</th>
+<th>Fuel</th>
+<th>Dates</th>
+<th>Total</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="adminBookingList"></tbody>
+
+</table>
+
+</div>
+
+
+<h2 style="margin-top:40px">
+Registered Users
+</h2>
+
+<br>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+
+</thead>
+
+<tbody id="userList"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</div>
+
+
+<button class="chat-launch" onclick="toggleChat()">💬 Help</button>
+<div id="chatBox" class="chat-box hidden">
+    <div class="chat-head"><span>DriveEasy Assistant</span><button onclick="toggleChat()" style="background:none;border:0;color:white;font-size:20px;cursor:pointer">×</button></div>
+    <div id="chatMessages" class="chat-messages"><div class="chat-msg chat-bot">Hello! Ask me about booking, payment, EVs, GPS or cancellation.</div></div>
+    <form class="chat-input" onsubmit="sendChatMessage(event)"><input id="chatInput" placeholder="Type your question..." autocomplete="off" required><button class="small-btn">Send</button></form>
+</div>
+
+<footer>
+
+© 2026 DriveEasy Car Rental System
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   DATA
+========================================= */
+
+const cars = [
+
+{
+id:1,
+name:"Toyota Fortuner",
+category:"SUV",
+price:5000,
+seats:7,
+fuel:"Diesel",
+icon:"🚙"
+},
+
+{
+id:2,
+name:"Hyundai Creta",
+category:"SUV",
+price:3000,
+seats:5,
+fuel:"Petrol",
+icon:"🚗"
+},
+
+{
+id:3,
+name:"Maruti Swift",
+category:"Hatchback",
+price:1800,
+seats:5,
+fuel:"Petrol",
+icon:"🚘"
+},
+
+{
+id:4,
+name:"Honda City",
+category:"Sedan",
+price:2500,
+seats:5,
+fuel:"Petrol",
+icon:"🚗"
+},
+
+{
+id:5,
+name:"Kia Seltos",
+category:"SUV",
+price:3500,
+seats:5,
+fuel:"Diesel",
+icon:"🚙"
+},
+
+{
+id:6,
+name:"Tata Nexon",
+category:"SUV",
+price:2800,
+seats:5,
+fuel:"Petrol",
+icon:"🚗"
+},
+
+{
+id:7,
+name:"Tata Nexon EV",
+category:"SUV",
+price:3200,
+seats:5,
+fuel:"Electric",
+range:"325 km per charge (approx.)",
+charging:"About 8-10 hours with a home AC charger (varies by charger)",
+icon:"⚡🚙"
+},
+
+{
+id:8,
+name:"MG Comet EV",
+category:"Hatchback",
+price:1800,
+seats:4,
+fuel:"Electric",
+range:"230 km per charge (approx.)",
+charging:"About 7 hours with a home AC charger (varies by charger)",
+icon:"⚡🚗"
+},
+
+{
+id:9,
+name:"Tata Tiago EV",
+category:"Hatchback",
+price:2200,
+seats:5,
+fuel:"Electric",
+range:"250 km per charge (approx.)",
+charging:"Charging time depends on charger type",
+icon:"⚡🚘"
+},
+{
+id:10,
+name:"Toyota Urban Cruiser Hyryder Strong Hybrid",
+category:"SUV",
+price:3600,
+seats:5,
+fuel:"Petrol + Electric Hybrid",
+hybrid:true,
+icon:"🔋🚙"
+},
+{
+id:11,
+name:"Maruti Grand Vitara Strong Hybrid",
+category:"SUV",
+price:3500,
+seats:5,
+fuel:"Petrol + Electric Hybrid",
+hybrid:true,
+icon:"🔋🚗"
+}
+
+];
+
+
+/* =========================================
+   INITIAL LOCAL STORAGE
+========================================= */
+
+if(!localStorage.getItem("cars")){
+    localStorage.setItem("cars", JSON.stringify(cars));
+} else {
+    // Add newly introduced EV models to existing demo data without deleting admin changes.
+    let savedCars = JSON.parse(localStorage.getItem("cars")) || [];
+    cars.forEach(function(car){
+        if(!savedCars.some(function(saved){ return saved.id === car.id; })){
+            savedCars.push(car);
+        }
+    });
+    localStorage.setItem("cars", JSON.stringify(savedCars));
+}
+
+if(!localStorage.getItem("users")){
+    localStorage.setItem(
+        "users",
+        JSON.stringify([])
+    );
+}
+
+if(!localStorage.getItem("bookings")){
+    localStorage.setItem(
+        "bookings",
+        JSON.stringify([])
+    );
+}
+
+
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
+
+function openPage(page){
+
+    const pages = [
+        "home",
+        "signup",
+        "login",
+        "userDashboard",
+        "cars",
+        "bookings",
+        "adminLogin",
+        "adminDashboard"
+    ];
+
+    pages.forEach(function(p){
+
+        document
+        .getElementById(p)
+        .classList.add("hidden");
+
+    });
+
+
+    document
+    .getElementById(page)
+    .classList.remove("hidden");
+
+
+    if(page === "cars"){
+        showCars();
+    }
+
+
+    if(page === "bookings"){
+        showBookings();
+    }
+
+
+    if(page === "userDashboard"){
+        loadUser();
+    }
+
+
+    if(page === "adminDashboard"){
+        loadAdmin();
+    }
+
+}
+
+
+function goHome(){
+    openPage("home");
+}
+
+
+/* =========================================
+   SIGNUP
+========================================= */
+
+function signupUser(event){
+
+    event.preventDefault();
+
+    let users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const exists =
+        users.find(
+            u => u.email === email
+        );
+
+
+    if(exists){
+
+        document.getElementById(
+            "signupMsg"
+        ).innerText =
+            "Email already registered!";
+
+        return;
+    }
+
+
+    users.push({
+
+        id:Date.now(),
+
+        name:name,
+
+        email:email,
+
+        phone:phone,
+
+        password:password
+
+    });
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+    document.getElementById(
+        "signupMsg"
+    ).innerText =
+        "Account created successfully!";
+
+
+    document
+    .querySelector("#signup form")
+    .reset();
+
+
+    setTimeout(function(){
+
+        openPage("login");
+
+    },1000);
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function loginUser(event){
+
+    event.preventDefault();
+
+
+    const email =
+        document.getElementById(
+            "loginEmail"
+        ).value;
+
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    const users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+
+    const user =
+        users.find(
+            u =>
+            u.email === email &&
+            u.password === password
+        );
+
+
+    if(!user){
+
+        document.getElementById(
+            "loginMsg"
+        ).innerText =
+            "Invalid email or password!";
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+
+    openPage("userDashboard");
+
+}
+
+
+/* =========================================
+   LOAD USER
+========================================= */
+
+function loadUser(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+
+    if(!user){
+
+        openPage("login");
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "userName"
+    ).innerText =
+        user.name;
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logout(){
+
+    localStorage.removeItem(
+        "currentUser"
+    );
+
+    openPage("home");
+
+}
+
+
+/* =========================================
+   SHOW CARS
+========================================= */
+
+function showCars(){
+
+    const list =
+        document.getElementById(
+            "carList"
+        );
+
+
+    if(!list) return;
+
+
+    const search =
+        document.getElementById(
+            "search"
+        ).value.toLowerCase();
+
+
+    const category =
+        document.getElementById("category").value;
+
+    const fuelType = document.getElementById("fuelType").value;
+
+    const allCars =
+        JSON.parse(
+            localStorage.getItem(
+                "cars"
+            )
+        );
+
+
+    const filtered =
+        allCars.filter(function(car){
+
+            return (
+
+                car.name
+                .toLowerCase()
+                .includes(search)
+
+                &&
+
+                (
+                    category === "All" ||
+                    car.category === category
+                )
+                &&
+                (
+                    fuelType === "All" ||
+                    car.fuel === fuelType
+                )
+
+            );
+
+        });
+
+
+    list.innerHTML = "";
+
+
+    filtered.forEach(function(car){
+
+        list.innerHTML += `
+
+        <div class="car-card">
+
+            <div class="car-icon">
+                ${car.icon}
+            </div>
+
+            <h2>
+                ${car.name}
+            </h2>
+
+            <p>
+                Category: ${car.category}
+            </p>
+
+            <p>
+                Seats: ${car.seats}
+            </p>
+
+            <p>
+                Fuel: ${car.fuel}
+            </p>
+            ${car.fuel === "Electric" ? `
+                <span class="ev-badge">⚡ ELECTRIC VEHICLE</span>
+                <p><b>Driving range:</b> ${car.range || "Model-dependent"}</p>
+                <p><b>Charging:</b> ${car.charging || "Depends on charger type"}</p>
+            ` : ""}
+            ${car.hybrid ? `
+                <span class="hybrid-badge">🔋 HYBRID – ELECTRIC BACKUP</span>
+                <p>Can use its electric motor when the petrol engine is not providing power, subject to battery charge.</p>
+                <div class="hybrid-demo" id="hybridState${car.id}">Demo mode: Petrol + electric assistance</div>
+                <button class="btn" type="button" onclick="simulateFuelEmpty(${car.id})">Simulate Fuel Empty</button>
+            ` : ""}
+
+            <p class="price">
+                ₹${car.price} / Day
+            </p>
+
+            <button
+                class="btn"
+                onclick="bookCar(${car.id})">
+
+                Book Now
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================
+   BOOK CAR
+========================================= */
+
+function bookCar(id){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+
+    if(!user){
+
+        alert(
+            "Please login first!"
+        );
+
+        openPage("login");
+
+        return;
+
+    }
+
+
+    const allCars =
+        JSON.parse(
+            localStorage.getItem(
+                "cars"
+            )
+        );
+
+
+    const car =
+        allCars.find(
+            c => c.id === id
+        );
+
+
+    const pickup =
+        prompt(
+            "Enter pickup date:"
+        );
+
+
+    if(!pickup) return;
+
+
+    const returnDate =
+        prompt(
+            "Enter return date:"
+        );
+
+
+    if(!returnDate) return;
+
+
+    const days =
+        Number(
+            prompt(
+                "Enter number of days:"
+            )
+        );
+
+
+    if(!days || days <= 0){
+
+        alert(
+            "Enter valid number of days."
+        );
+
+        return;
+
+    }
+
+
+    const total =
+        car.price * days;
+
+
+    const confirmBooking =
+        confirm(
+
+            "Car: " +
+            car.name +
+
+            "\nDays: " +
+            days +
+
+            "\nTotal: ₹" +
+            total +
+
+            "\n\nConfirm booking?"
+
+        );
+
+
+    if(!confirmBooking) return;
+
+    // Store the booking temporarily and show visible payment choices.
+    window.pendingDriveEasyBooking = {
+        userId:user.id,
+        userName:user.name,
+        carName:car.name,
+        fuel:car.fuel,
+        pickup:pickup,
+        returnDate:returnDate,
+        days:days,
+        total:total
+    };
+    showPaymentOptions(total);
+}
+
+function showPaymentOptions(total){
+    const old = document.getElementById("driveEasyPaymentModal");
+    if(old) old.remove();
+    const modal = document.createElement("div");
+    modal.id = "driveEasyPaymentModal";
+    modal.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.68);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;";
+    modal.innerHTML = `
+      <div style="background:#fff;color:#172033;width:min(440px,100%);padding:26px;border-radius:16px;box-shadow:0 15px 50px #0005;font-family:Arial,sans-serif;">
+        <h2 style="margin:0 0 8px;color:#172554;">Choose Payment Method</h2>
+        <p style="margin:0 0 18px;color:#475569;">Booking amount: <strong style="font-size:22px;color:#0f766e;">₹${Number(total).toLocaleString('en-IN')}</strong></p>
+        <button onclick="completeDriveEasyBooking('UPI (Demo)')" style="display:block;width:100%;padding:14px;margin:10px 0;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;text-align:left;font-size:16px;cursor:pointer;">📱 UPI <small style="display:block;color:#64748b;margin-top:4px;">Google Pay / PhonePe / Paytm (demo)</small></button>
+        <button onclick="completeDriveEasyBooking('Card (Demo)')" style="display:block;width:100%;padding:14px;margin:10px 0;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;text-align:left;font-size:16px;cursor:pointer;">💳 Debit / Credit Card <small style="display:block;color:#64748b;margin-top:4px;">Demo selection only</small></button>
+        <button onclick="completeDriveEasyBooking('Cash on pickup')" style="display:block;width:100%;padding:14px;margin:10px 0;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;text-align:left;font-size:16px;cursor:pointer;">💵 Cash on Pickup</button>
+        <button onclick="document.getElementById('driveEasyPaymentModal').remove();window.pendingDriveEasyBooking=null;" style="width:100%;padding:11px;margin-top:8px;border:0;border-radius:9px;background:#e2e8f0;color:#334155;cursor:pointer;">Cancel</button>
+        <p style="font-size:12px;color:#64748b;margin:14px 0 0;">Demo only: no real money is collected or card/UPI details are processed.</p>
+      </div>`;
+    document.body.appendChild(modal);
+}
+
+function completeDriveEasyBooking(paymentName){
+    const pending = window.pendingDriveEasyBooking;
+    if(!pending){ alert("Booking details not found. Please try again."); return; }
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push({
+        id:"B" + Date.now(),
+        ...pending,
+        paymentMethod:paymentName,
+        paymentStatus:paymentName === "Cash on pickup" ? "Pay on pickup" : "Demo only - not charged",
+        status:"Pending"
+    });
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    window.pendingDriveEasyBooking = null;
+    const modal = document.getElementById("driveEasyPaymentModal");
+    if(modal) modal.remove();
+    alert("Booking successful! Payment method: " + paymentName);
+    openPage("bookings");
+}
+
+
+/* =========================================
+   SHOW USER BOOKINGS
+========================================= */
+
+function showBookings(){
+
+    const table =
+        document.getElementById(
+            "bookingList"
+        );
+
+
+    if(!table) return;
+
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+
+    if(!user){
+
+        openPage("login");
+
+        return;
+
+    }
+
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem(
+                "bookings"
+            )
+        ) || [];
+
+
+    const mine =
+        bookings.filter(
+            b => b.userId === user.id
+        );
+
+
+    table.innerHTML = "";
+
+
+    if(mine.length === 0){
+
+        table.innerHTML = `
+
+        <tr>
+
+        <td colspan="8">
+            No bookings yet.
+        </td>
+
+        </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    mine.forEach(function(b){
+
+        table.innerHTML += `
+
+        <tr>
+
+        <td>${b.id}</td>
+
+        <td>${b.carName}</td>
+
+        <td>${b.fuel || "Not recorded"}</td>
+
+        <td>${b.pickup}</td>
+
+        <td>${b.returnDate}</td>
+
+        <td>₹${b.total}</td>
+
+        <td>${b.status}</td>
+        <td><button class="small-btn" onclick="downloadInvoice('${b.id}')">Download</button></td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================
+   HYBRID FUEL-EMPTY DEMO
+========================================= */
+function simulateFuelEmpty(carId){
+    const allCars = JSON.parse(localStorage.getItem("cars")) || [];
+    const car = allCars.find(c => c.id === carId);
+    if(!car || !car.hybrid){
+        alert("Electric backup is available only in hybrid-enabled demo vehicles.");
+        return;
+    }
+    // This is a software demonstration, not a command to a real vehicle.
+    const state = {
+        carId: carId,
+        carName: car.name,
+        fuelPercent: 0,
+        batteryPercent: 65,
+        powerMode: "Electric backup demo",
+        updatedAt: new Date().toLocaleString()
+    };
+    localStorage.setItem("hybridDemoState", JSON.stringify(state));
+    const target = document.getElementById("hybridState" + carId);
+    if(target){
+        target.innerHTML = "<b>Fuel: 0% | Battery: 65%</b><br>⚡ Switched to electric backup mode (demo).";
+    }
+    alert(car.name + " demo: fuel is empty. The hybrid system is now shown in electric backup mode. Real operation depends on the vehicle battery and manufacturer design.");
+}
+
+/* =========================================
+   GPS TRACKING
+========================================= */
+let gpsWatchId = null;
+let latestGpsPosition = null;
+
+function startGpsTracking(){
+    const status = document.getElementById("gpsStatus");
+    if(!status) return;
+    if(!navigator.geolocation){
+        status.textContent = "This browser does not support GPS/location services.";
+        return;
+    }
+    if(!window.isSecureContext && location.hostname !== "localhost"){
+        status.textContent = "Location access usually requires HTTPS or localhost. Open this project with VS Code Live Server.";
+        return;
+    }
+    status.textContent = "Requesting location permission...";
+    if(gpsWatchId !== null) navigator.geolocation.clearWatch(gpsWatchId);
+    gpsWatchId = navigator.geolocation.watchPosition(function(position){
+        latestGpsPosition = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            accuracy: Math.round(position.coords.accuracy)
+        };
+        const mapUrl = "https://www.google.com/maps?q=" + latestGpsPosition.latitude + "," + latestGpsPosition.longitude;
+        status.innerHTML = "<b>GPS tracking active</b><br>Latitude: " + latestGpsPosition.latitude.toFixed(6) +
+            "<br>Longitude: " + latestGpsPosition.longitude.toFixed(6) +
+            "<br>Accuracy: about " + latestGpsPosition.accuracy + " metres<br>" +
+            "<a href='" + mapUrl + "' target='_blank' rel='noopener'>Open current location in Google Maps</a>";
+        localStorage.setItem("lastGpsLocation", JSON.stringify({...latestGpsPosition, timestamp:new Date().toISOString()}));
+    }, function(error){
+        let message = "Unable to get location.";
+        if(error.code === 1) message = "Location permission was denied. Allow location access in your browser settings.";
+        if(error.code === 2) message = "Location is currently unavailable. Check device location settings.";
+        if(error.code === 3) message = "Location request timed out. Try again.";
+        status.textContent = message;
+    }, {enableHighAccuracy:true, maximumAge:5000, timeout:15000});
+}
+
+function stopGpsTracking(){
+    if(gpsWatchId !== null){
+        navigator.geolocation.clearWatch(gpsWatchId);
+        gpsWatchId = null;
+    }
+    const status = document.getElementById("gpsStatus");
+    if(status) status.textContent = "GPS tracking stopped. The last saved demo location remains in this browser.";
+}
+
+/* =========================================
+   EMERGENCY SOS
+========================================= */
+function getEmergencyLocation(){
+    return latestGpsPosition || JSON.parse(localStorage.getItem("lastGpsLocation") || "null");
+}
+
+function shareLiveLocation(){
+    const saved = getEmergencyLocation();
+    const status = document.getElementById("gpsStatus");
+    if(!saved){
+        if(status) status.textContent = "Location not available. Start GPS Tracking first and allow location permission.";
+        alert("Start GPS Tracking first to get your current location.");
+        return;
+    }
+    const mapUrl = "https://www.google.com/maps?q=" + saved.latitude + "," + saved.longitude;
+    const shareText = "My current location (DriveEasy): " + mapUrl;
+    if(navigator.share){
+        navigator.share({title:"My current location", text:shareText, url:mapUrl}).catch(()=>{});
+    } else {
+        window.open("https://wa.me/?text=" + encodeURIComponent(shareText), "_blank");
+    }
+    if(status) status.innerHTML = "Location sharing opened. Check the app and choose a trusted contact.<br><a href='" + mapUrl + "' target='_blank' rel='noopener'>View location on Google Maps</a>";
+}
+
+function sendEmergencySOS(){
+    const saved = getEmergencyLocation();
+    let message = "EMERGENCY SOS - I need help. This message is from the DriveEasy demo.";
+    if(saved){
+        message += " My last known location: https://www.google.com/maps?q=" + saved.latitude + "," + saved.longitude;
+    } else {
+        message += " GPS location is not available. Please contact me.";
+    }
+    const status = document.getElementById("gpsStatus");
+    if(status){
+        status.innerHTML = "<b style='color:#b91c1c'>SOS message prepared.</b><br>" +
+            (saved ? "Last known coordinates: " + saved.latitude.toFixed(6) + ", " + saved.longitude.toFixed(6) : "No GPS coordinates available.") +
+            "<br>Choose Share Location to send the map link, or call <b>112</b> for immediate danger.";
+    }
+    if(confirm(message + "\n\nOpen sharing options to send this message?")){
+        if(navigator.share){
+            navigator.share({title:"Emergency SOS", text:message}).catch(()=>{});
+        } else {
+            window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank");
+        }
+    }
+}
+
+function callEmergency112(){
+    if(confirm("Call India's emergency number 112 now?")) window.location.href = "tel:112";
+}
+
+/* =========================================
+   ADMIN LOGIN
+========================================= */
+
+function adminLogin(event){
+
+    event.preventDefault();
+
+
+    const email =
+        document.getElementById(
+            "adminEmail"
+        ).value;
+
+
+    const password =
+        document.getElementById(
+            "adminPassword"
+        ).value;
+
+
+    if(
+
+        email ===
+        "admin@driveeasy.com"
+
+        &&
+
+        password ===
+        "admin123"
+
+    ){
+
+        localStorage.setItem(
+            "admin",
+            "true"
+        );
+
+
+        openPage(
+            "adminDashboard"
+        );
+
+    }
+
+    else{
+
+        document.getElementById(
+            "adminMsg"
+        ).innerText =
+            "Invalid admin login!";
+
+    }
+
+}
+
+
+/* =========================================
+   ADMIN DASHBOARD
+========================================= */
+
+function loadAdmin(){
+
+    if(
+        localStorage.getItem("admin")
+        !== "true"
+    ){
+
+        openPage(
+            "adminLogin"
+        );
+
+        return;
+
+    }
+
+
+    const cars =
+        JSON.parse(
+            localStorage.getItem(
+                "cars"
+            )
+        ) || [];
+
+
+    const users =
+        JSON.parse(
+            localStorage.getItem(
+                "users"
+            )
+        ) || [];
+
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem(
+                "bookings"
+            )
+        ) || [];
+
+
+    document.getElementById(
+        "carCount"
+    ).innerText =
+        cars.length;
+
+
+    document.getElementById(
+        "userCount"
+    ).innerText =
+        users.length;
+
+
+    document.getElementById(
+        "bookingCount"
+    ).innerText =
+        bookings.length;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).innerText =
+
+        bookings.filter(
+            b =>
+            b.status === "Pending"
+        ).length;
+
+    document.getElementById("revenueCount").innerText = "₹" + bookings.filter(b => b.status !== "Rejected").reduce((sum,b) => sum + Number(b.total || 0),0).toLocaleString("en-IN");
+
+    showAdminBookings();
+
+    showUsers();
+
+}
+
+
+/* =========================================
+   ADMIN BOOKINGS
+========================================= */
+
+function showAdminBookings(){
+
+    const table =
+        document.getElementById(
+            "adminBookingList"
+        );
+
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem(
+                "bookings"
+            )
+        ) || [];
+
+
+    table.innerHTML = "";
+
+
+    if(bookings.length === 0){
+
+        table.innerHTML = `
+
+        <tr>
+
+        <td colspan="8">
+            No bookings available.
+        </td>
+
+        </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    bookings.forEach(
+        function(b,index){
+
+            table.innerHTML += `
+
+            <tr>
+
+            <td>
+                ${b.id}
+            </td>
+
+            <td>
+                ${b.userName}
+            </td>
+
+            <td>
+                ${b.carName}
+            </td>
+
+            <td>
+                ${b.fuel || "Not recorded"}
+            </td>
+
+            <td>
+                ${b.pickup} -
+                ${b.returnDate}
+            </td>
+
+            <td>
+                ₹${b.total}
+            </td>
+
+            <td>
+                ${b.status}
+            </td>
+
+            <td>
+
+            <button
+                class="approve"
+                onclick="
+                changeStatus(
+                    ${index},
+                    'Approved'
+                )">
+
+                Approve
+
+            </button>
+
+            <button
+                class="reject"
+                onclick="
+                changeStatus(
+                    ${index},
+                    'Rejected'
+                )">
+
+                Reject
+
+            </button>
+
+            </td>
+
+            </tr>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CHANGE BOOKING STATUS
+========================================= */
+
+function changeStatus(
+    index,
+    status
+){
+
+    let bookings =
+        JSON.parse(
+            localStorage.getItem(
+                "bookings"
+            )
+        );
+
+
+    bookings[index].status =
+        status;
+
+
+    localStorage.setItem(
+        "bookings",
+        JSON.stringify(bookings)
+    );
+
+
+    loadAdmin();
+
+}
+
+
+/* =========================================
+   SHOW USERS
+========================================= */
+
+function showUsers(){
+
+    const table =
+        document.getElementById(
+            "userList"
+        );
+
+
+    const users =
+        JSON.parse(
+            localStorage.getItem(
+                "users"
+            )
+        ) || [];
+
+
+    table.innerHTML = "";
+
+
+    users.forEach(function(user){
+
+        table.innerHTML += `
+
+        <tr>
+
+        <td>
+            ${user.name}
+        </td>
+
+        <td>
+            ${user.email}
+        </td>
+
+        <td>
+            ${user.phone}
+        </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================
+   ADMIN LOGOUT
+========================================= */
+
+function adminLogout(){
+
+    localStorage.removeItem(
+        "admin"
+    );
+
+    openPage(
+        "home"
+    );
+
+}
+
+
+/* =========================================
+   SMART RECOMMENDATION, CHARGING LOCATOR,
+   INVOICE AND CUSTOMER SUPPORT CHATBOT
+========================================= */
+function recommendCar(){
+    const budget = Number(document.getElementById("recommendBudget").value);
+    const fuel = document.getElementById("recommendFuel").value;
+    const result = document.getElementById("recommendResult");
+    if(!budget || budget <= 0){ result.textContent = "Please enter a valid daily budget."; return; }
+    const available = JSON.parse(localStorage.getItem("cars")) || [];
+    const matches = available.filter(c => c.price <= budget && (fuel === "All" || c.fuel === fuel)).sort((a,b) => b.price-a.price);
+    if(!matches.length){ result.textContent = "No car matches this budget and fuel preference. Try increasing your budget or selecting Any fuel type."; return; }
+    const best = matches[0];
+    result.innerHTML = `<b>Recommended: ${best.name}</b><br>Fuel: ${best.fuel}<br>Category: ${best.category}<br>Price: ₹${best.price.toLocaleString("en-IN")} per day<br><button class="small-btn" onclick="openPage('cars')">View Cars</button>`;
+}
+
+function findChargingStations(){
+    const box = document.getElementById("chargingResult");
+    if(!navigator.geolocation){ box.textContent = "Geolocation is not supported by this browser."; return; }
+    box.textContent = "Getting your location... Please allow location access.";
+    navigator.geolocation.getCurrentPosition(pos => {
+        const lat = pos.coords.latitude, lon = pos.coords.longitude;
+        const mapUrl = `https://www.google.com/maps/search/?api=1&query=EV+charging+stations&query_place_id=&center=${lat},${lon}`;
+        box.innerHTML = `Location found (accuracy approx. ${Math.round(pos.coords.accuracy)} m).<br><a href="${mapUrl}" target="_blank" rel="noopener">Open nearby EV charging stations in Google Maps</a>`;
+    }, err => { box.textContent = "Could not get location: " + err.message + ". Allow location permission and use HTTPS or localhost."; }, {enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+}
+
+function downloadInvoice(bookingId){
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const b = bookings.find(item => item.id === bookingId);
+    if(!b){ alert("Booking not found."); return; }
+    const invoice = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>DriveEasy Invoice ${b.id}</title><style>body{font-family:Arial;padding:35px;color:#222}h1{color:#1d4ed8}table{border-collapse:collapse;width:100%;margin-top:25px}td,th{border:1px solid #ccc;padding:12px;text-align:left}.total{font-size:20px;font-weight:bold;margin-top:20px}</style></head><body><h1>DriveEasy</h1><h2>Booking Invoice</h2><p><b>Invoice / Booking ID:</b> ${b.id}</p><p><b>Customer:</b> ${b.userName}</p><p><b>Car:</b> ${b.carName}</p><p><b>Fuel:</b> ${b.fuel || "N/A"}</p><p><b>Pickup:</b> ${b.pickup}</p><p><b>Return:</b> ${b.returnDate}</p><p><b>Days:</b> ${b.days}</p><p><b>Payment:</b> ${b.paymentMethod || "Not recorded"}</p><p><b>Payment status:</b> ${b.paymentStatus || "Not recorded"}</p><p><b>Booking status:</b> ${b.status}</p><div class="total">Total: ₹${b.total}</div><p style="margin-top:30px">Thank you for choosing DriveEasy. This is a demo invoice.</p><script>window.onload=()=>window.print()<\/script></body></html>`;
+    const blob = new Blob([invoice], {type:"text/html"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href=url; a.download=`DriveEasy_Invoice_${b.id}.html`; a.click(); URL.revokeObjectURL(url);
+}
+
+function toggleChat(){ document.getElementById("chatBox").classList.toggle("hidden"); }
+function sendChatMessage(event){
+    event.preventDefault();
+    const input = document.getElementById("chatInput");
+    const text = input.value.trim(); if(!text) return;
+    addChatBubble(text,"user"); input.value="";
+    const q=text.toLowerCase(); let answer;
+    if(q.includes("book")) answer="To book a car, sign in, open Cars, choose a vehicle and enter your pickup and return details.";
+    else if(q.includes("payment") || q.includes("pay")) answer="The project demonstrates UPI, card and cash-on-pickup choices. Online payment is not processed in this frontend demo.";
+    else if(q.includes("cancel")) answer="For this demo, contact the admin to update your booking status. A self-service cancellation feature can be added next.";
+    else if(q.includes("gps") || q.includes("track")) answer="Open your User Dashboard and select Start GPS Tracking. Allow browser location permission. Tracking uses this device's location, not a car-installed GPS unit.";
+    else if(q.includes("emergency") || q.includes("sos")) answer="Use Emergency SOS or Call 112 in the Smart Drive Safety panel. The demo prepares a message; it does not automatically alert emergency services.";
+    else if(q.includes("ev") || q.includes("electric") || q.includes("charg")) answer="You can filter Electric cars in the Cars page. Use EV Charging Station Locator on your dashboard to open nearby charging stations in Google Maps.";
+    else if(q.includes("invoice")) answer="After booking, open My Bookings and click Download in the Invoice column.";
+    else if(q.includes("admin")) answer="Admin demo login: admin@driveeasy.com / admin123. Open Admin from the home page.";
+    else answer="I can help with car booking, payment options, EVs, charging stations, GPS, SOS, invoices and admin login.";
+    setTimeout(()=>addChatBubble(answer,"bot"),250);
+}
+function addChatBubble(message,who){
+    const area=document.getElementById("chatMessages");
+    const div=document.createElement("div"); div.className="chat-msg "+(who==="user"?"chat-user":"chat-bot");
+    div.textContent=message; area.appendChild(div); area.scrollTop=area.scrollHeight;
+}
+
+/* =========================================
+   START
+========================================= */
+
+openPage("home");
+
+</script>
+
+</body>
+</html>
+```
